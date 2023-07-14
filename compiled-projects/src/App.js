@@ -1,10 +1,14 @@
 import "./App.css";
-import { Quiz } from "./components/Quiz";
 import { QuizCard } from "./components/QuizCard";
+import StaticApp from "./travelComponent/StaticApp";
+import Accordion from "./components/Accordion";
+import { TipCalculator } from "./components/TipCalculator";
 function App() {
   return (
     <div>
-      <QuizCard />
+      {/* <StaticApp /> */}
+      {/* <Accordion /> */}
+      <TipCalculator />
     </div>
   );
 }

@@ -1,16 +1,3 @@
-import "./App.css";
-import TravelChecklist from "./components/TravelChecklist";
-function App() {
-  return (
-    <div>
-     <TravelChecklist /> 
-    </div>
-  );
-}
-
-export default App;
-
-////////////////////////////////////////////////////////// Accordion
 import React, { useState } from "react";
 
 const Accordion = () => {
@@ -46,14 +33,13 @@ const Accordion = () => {
     <div className="w-full max-w-md mx-auto">
       {accordionData.map((item, index) => (
         <div
+          onClick={() => toggleActive(item.id)}
           key={item.id}
           className="border-b border-gray-200 rounded-lg my-2 shadow-lg mb-5"
         >
-          <h2
-            className="text-xl bg-gray-200 py-3 px-5 cursor-pointer flex justify-between items-center"
-            onClick={() => toggleActive(item.id)}
-          >
-            <span className="mr-4 text-gray-500">Item {index + 1}</span>{" "}
+          <h2 className="text-xl bg-gray-2 py-3 px-5 cursor-pointer flex justify-between items-center">
+            <span className="mr-4 text-gray-500">{index + 1}</span>
+            {"   "}
             {item.title}
             <span
               className={`transition-transform duration-300 ease-in-out transform ${
