@@ -4,6 +4,8 @@ import "./App.css";
 // import Accordion from "./components/Accordion";
 // import { TipCalculator } from "./components/TipCalculator";
 import SBMain from "./SplitTheBill/Main";
+
+
 function App() {
   return (
     <div>
