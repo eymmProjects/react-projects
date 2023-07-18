@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
-function FormSplitBill({ selectedFriend }) {
+function FormSplitBill({ selectedFriend, onSplitBill }) {
+  const [bill, setBill] = useState("");
+  const [paidByUser, setPaidByUser] = useState("");
+  const paidByFriend = bill ? bill - paidByUser : "";
+  const [whoIsPaying, setWhoIsPaying] = useState("user");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!bill || !paidByUser) return;
+    onSplitBill(whoIsPaying === "user" ? paidByFriend : -paidByFriend);
+  }
+
   return (
     <form action="" className="w-72 mx-auto">
       <h1 className="text-2xl text-center font-bold mb-4">
@@ -8,9 +20,11 @@ function FormSplitBill({ selectedFriend }) {
       </h1>
       <div className="mb-4">
         <label htmlFor="name" className="block text-lg font-medium mb-2">
-          Name:
+          Bill:
         </label>
         <input
+          value={bill}
+          onChange={(e) => setBill(Number(e.target.value))}
           type="text"
           id="name"
           name="name"
@@ -27,7 +41,15 @@ function FormSplitBill({ selectedFriend }) {
             Your expense:
           </label>
           <input
-            type="number"
+            value={paidByUser}
+            onChange={(e) =>
+              setPaidByUser(
+                Number(e.target.value) > bill
+                  ? paidByUser
+                  : Number(e.target.value)
+              )
+            }
+            type="text"
             id="your-expense"
             name="your-expense"
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
@@ -38,6 +60,7 @@ function FormSplitBill({ selectedFriend }) {
             {selectedFriend.name} :
           </label>
           <input
+            value={paidByFriend}
             disabled
             type="number"
             id="x-expense"
@@ -53,12 +76,14 @@ function FormSplitBill({ selectedFriend }) {
           Who is paying the bill:
         </label>
         <select
+          value={whoIsPaying}
+          onChange={(e) => setWhoIsPaying(e.target.value)}
           id="payment"
           name="payment"
           className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
         >
           <option value="user">Your</option>
-          <option value="friend">Friend</option>
+          <option value="friend">{selectedFriend.name}</option>
         </select>
       </div>
 

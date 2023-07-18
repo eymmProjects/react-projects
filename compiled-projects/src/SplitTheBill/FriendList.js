@@ -12,7 +12,15 @@ const FriendList = ({ friendsData, onSelection, selectedFriend }) => {
   function handleShowAddFriend() {
     setShowAddFriend((show) => !show);
   }
-
+  function handleSplitBill(value) {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+  }
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-2xl font-bold mb-4">Friends List</h1>

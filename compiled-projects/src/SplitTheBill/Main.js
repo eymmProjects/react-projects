@@ -4,7 +4,7 @@ import FormAddFriend from "./FormAddFriend";
 import FormSplitBill from "./FormSplitBill";
 import Button from "./Button";
 
-const friends = [
+const friendsData = [
   {
     id: 1,
     name: "John Doe",
@@ -22,10 +22,22 @@ const friends = [
 
 function Main() {
   const [selectedFriend, setSelectedFriend] = useState(null);
+  const [friends, setFriends] = useState(friendsData);
 
   function handleSelection(friend) {
     setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
+  }
 
+  function handleSplitBill(value) {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+
+    setSelectedFriend(null);
   }
 
   return (
@@ -51,7 +63,10 @@ function Main() {
         <div className="flex flex-col">
           {selectedFriend && (
             <div className="relative flex items-left p-4 m-2 bg-gray-100 rounded shadow-md text-left">
-              <FormSplitBill selectedFriend={selectedFriend} />
+              <FormSplitBill
+                selectedFriend={selectedFriend}
+                onSplitBill={handleSplitBill}
+              />
             </div>
           )}
         </div>
