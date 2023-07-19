@@ -1,15 +1,12 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import MBMain from "./TheMovieBox/main";
+import "./usepopcorn/stylePopcorn.css";
+
+import PopApp from "./usepopcorn/App";
 
 function App() {
   return (
     <div className="">
-      <Router>
-        <Routes>
-          <Route path="/" element={<MBMain />} />
-        </Routes>
-      </Router>
+      <PopApp />
     </div>
   );
 }
