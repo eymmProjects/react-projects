@@ -1,3 +1,6 @@
+key= http://www.omdbapi.com/?i=tt3896198&apikey=ddd8ca70
+
+
 import "./App.css";
 import TravelChecklist from "./components/TravelChecklist";
 function App() {

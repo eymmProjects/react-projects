@@ -10,7 +10,7 @@ import PopApp from "./usepopcorn/App";
 function App() {
   return (
     <div className="">
-      <App1 />
+      <PopApp />
     </div>
   );
 }
