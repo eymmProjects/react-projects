@@ -12,9 +12,9 @@ import CurrencyConverter from "./components/CurrencyConverter";
 function App() {
   return (
     <div className="">
-      {/* <PopApp /> */}
+      <PopApp />
 
-      <CurrencyConverter />
+      {/* <CurrencyConverter /> */}
     </div>
   );
 }
