@@ -1,17 +1,22 @@
 // import "./App.css";
 // how react works
-import "./how-react-works/index.css";
+// import "./how-react-works/index.css";
+// import "./usepopcorn/stylePopcorn.css";
 
-import "./usepopcorn/stylePopcorn.css";
-import App1 from "./how-react-works/App";
-import AppHooks from "./hooks/App";
-import PopApp from "./usepopcorn/App";
+// import App1 from "./how-react-works/App";
+// import AppHooks from "./hooks/App";
+// import PopApp from "./usepopcorn/App";
 
-import CurrencyConverter from "./components/CurrencyConverter";
+// import CurrencyConverter from "./components/CurrencyConverter";
 
 //SECTION class-weather
 
-import AppClassWeather from "./class-weather/App";
+// import AppClassWeather from "./class-weather/App";
+
+//!SECTION React Quiz
+import "./react-quiz/index.css";
+
+import QuizApp from "./react-quiz/App";
 
 function App() {
   return (
@@ -19,7 +24,8 @@ function App() {
       {/* <PopApp /> */}
       {/* <CurrencyConverter /> */}
       {/* <AppHooks /> */}
-      <AppClassWeather />
+      {/* <AppClassWeather /> */}
+      <QuizApp />
     </div>
   );
 }
