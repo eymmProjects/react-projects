@@ -1,3 +1,4 @@
+
 // import "./App.css";
 // how react works
 // import "./how-react-works/index.css";
@@ -14,9 +15,12 @@
 // import AppClassWeather from "./class-weather/App";
 
 //!SECTION React Quiz
-import "./react-quiz/index.css";
+// import "./react-quiz/index.css";
 
-import QuizApp from "./react-quiz/App";
+// import QuizApp from "./react-quiz/App";
+
+//SECTION - Bank
+import BankApp from "./bank/App";
 
 function App() {
   return (
@@ -25,7 +29,7 @@ function App() {
       {/* <CurrencyConverter /> */}
       {/* <AppHooks /> */}
       {/* <AppClassWeather /> */}
-      <QuizApp />
+      <BankApp />
     </div>
   );
 }
