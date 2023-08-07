@@ -1,4 +1,3 @@
-
 // import "./App.css";
 // how react works
 // import "./how-react-works/index.css";
@@ -21,6 +20,7 @@
 
 //SECTION - Bank
 import BankApp from "./bank/App";
+import ReactProject from "./reactproject/CardHeartv1";
 
 function App() {
   return (
@@ -29,7 +29,8 @@ function App() {
       {/* <CurrencyConverter /> */}
       {/* <AppHooks /> */}
       {/* <AppClassWeather /> */}
-      <BankApp />
+      {/* <BankApp /> */}
+      <ReactProject />
     </div>
   );
 }
