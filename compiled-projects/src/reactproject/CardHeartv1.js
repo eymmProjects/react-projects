@@ -23,6 +23,8 @@ function CardHeartv1() {
         src={dogImage}
         alt=""
         className="w-32 h-32 mx-auto rounded-fill"
+        // onClick={toggleLike}
+        onDoubleClick={toggleLike}
       />
 
       <h2 className="mt-4 text-xl font-semibold">White Rabbit</h2>

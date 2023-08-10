@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 // how react works
 // import "./how-react-works/index.css";
 // import "./usepopcorn/stylePopcorn.css";
@@ -20,7 +20,8 @@
 
 //SECTION - Bank
 import BankApp from "./bank/App";
-import ReactProject from "./reactproject/CardHeartv1";
+// import ReactProject from "./reactproject/TestimonialsApp";
+import ReactProject from "./reactproject/Testimonial";
 
 function App() {
   return (
