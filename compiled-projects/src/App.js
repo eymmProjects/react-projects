@@ -21,7 +21,7 @@ import "./App.css";
 //SECTION - Bank
 import BankApp from "./bank/App";
 // import ReactProject from "./reactproject/TestimonialsApp";
-import ReactProject from "./reactproject/Testimonial";
+import ReactProject from "./reactproject/AlertApp";
 
 function App() {
   return (
