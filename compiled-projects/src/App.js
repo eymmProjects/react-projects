@@ -14,9 +14,8 @@ import "./App.css";
 // import AppClassWeather from "./class-weather/App";
 
 //!SECTION React Quiz
-// import "./react-quiz/index.css";
-
-// import QuizApp from "./react-quiz/App";
+import "./react-quiz/index.css";
+import QuizApp from "./react-quiz/App";
 
 //SECTION - Bank
 import BankApp from "./bank/App";
@@ -31,7 +30,8 @@ function App() {
       {/* <AppHooks /> */}
       {/* <AppClassWeather /> */}
       {/* <BankApp /> */}
-      <ReactProject />
+      {/* <ReactProject /> */}
+      <QuizApp />
     </div>
   );
 }
