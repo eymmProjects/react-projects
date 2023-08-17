@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 // how react works
 // import "./how-react-works/index.css";
 // import "./usepopcorn/stylePopcorn.css";
@@ -14,13 +14,17 @@ import "./App.css";
 // import AppClassWeather from "./class-weather/App";
 
 //!SECTION React Quiz
-import "./react-quiz/index.css";
-import QuizApp from "./react-quiz/App";
+// import "./react-quiz/index.css";
+// import QuizApp from "./react-quiz/App";
 
 //SECTION - Bank
-import BankApp from "./bank/App";
+// import BankApp from "./bank/App";
 // import ReactProject from "./reactproject/TestimonialsApp";
-import ReactProject from "./reactproject/AlertApp";
+// import ReactProject from "./reactproject/AlertApp";
+// import ReduxIntro from "./redux-intro/App";
+import AppIntro from "./redux-intro/App";
+import store from "./redux-intro/store";
+import { Provider } from "react-redux";
 
 function App() {
   return (
@@ -31,7 +35,10 @@ function App() {
       {/* <AppClassWeather /> */}
       {/* <BankApp /> */}
       {/* <ReactProject /> */}
-      <QuizApp />
+      {/* <QuizApp /> */}
+      <Provider store={store}>
+        <AppIntro />
+      </Provider>
     </div>
   );
 }
