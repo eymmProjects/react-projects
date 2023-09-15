@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import MovieList from "./MovieList";
+import { MovieList } from "./MovieList";
 
 const PageContainer = styled.div`
   max-width: 1200px;

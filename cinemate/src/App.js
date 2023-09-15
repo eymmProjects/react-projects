@@ -1,13 +1,18 @@
 import AllRoutes from "./routes/AllRoutes";
 import "./App.css";
-import LandingPage from "./pages/LandingPage";
+import Header from "./keynote/Header";
+import { Keynote_Hero } from "./keynote/Keynote_Hero";
+import Home from "./keynote/Home";
 
 function App() {
   return (
     <div className="App">
-      <AllRoutes>
-        <LandingPage />
-      </AllRoutes>
+      {/* <Header />
+      <AllRoutes />
+      <Keynote_Hero /> */}
+      {/* <LandingPage /> */}
+      <Home />
+      <AllRoutes />
     </div>
   );
 }
