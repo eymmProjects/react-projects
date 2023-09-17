@@ -4,7 +4,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import Logo from "../assets/logo.png";
 
 export const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(true);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
