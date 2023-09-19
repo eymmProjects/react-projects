@@ -8,8 +8,8 @@ const BannerArea = styled.section`
   background-image: url(${BannerBg});
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 260px;
-  padding-bottom: 235px;
+  padding-top: 200px;
+  padding-bottom: 100px;
   position: relative;
   @media (max-width: 1600px) {
     padding-top: 210px;
@@ -27,7 +27,8 @@ const BannerArea = styled.section`
     display: flex;
   }
   h2 {
-    font-weight: 500;
+    text-transform: uppercase;
+    font-weight: bold;
     font-size: 62px;
     line-height: 1.21;
     letter-spacing: -2px;
@@ -92,30 +93,42 @@ const BannerArea = styled.section`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 5px;
     font-weight: bold;
     font-size: 16px;
     text-align: center;
     line-height: 1;
-    color: #ffffff;
     padding: 21px 29px;
-    background-color: #23374d;
     transition: all 500ms ease;
-    &:hover {
-      background-color: #fff;
-      color: #23374d;
-    }
-    i {
-      margin-left: 10px;
-      position: relative;
-      top: 1px;
-    }
-    @media (max-width: 1600px) {
-      font-size: 14px;
-      padding: 16px 23px;
-    }
-    @media (max-width: 575px) {
-      width: 100%;
+
+    /* Default Styles (can be set to either primary or outline based on preference) */
+    background-color: #23374d;
+    color: #ffffff;
+    border: none;
+
+    /* Primary Variant */
+    ${(props) =>
+      props.variant === "primary" &&
+      `
+    background-color: #23374d;
+    color: #ffffff;
+    border: none;
+  `}
+
+    /* Outline Variant */
+  ${(props) =>
+      props.variant === "outline" &&
+      `
+    background-color: transparent;
+    color: #23374d;
+    border: 2px solid #23374d;
+  `}
+
+  &:hover {
+      background-color: ${(props) =>
+        props.variant === "outline" ? "#23374d" : "#ffffff"};
+      color: ${(props) =>
+        props.variant === "outline" ? "#ffffff" : "#23374d"};
     }
   }
   .bannerMoc {
@@ -145,6 +158,59 @@ export const Col = styled.div`
   @media (max-width: 575px) {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+`;
+
+export const Button = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1;
+  padding: 21px 29px;
+  transition: all 500ms ease;
+
+  /* Default Styles (can be set to either primary or outline based on preference) */
+  background-color: #23374d;
+  color: #ffffff;
+  border: none;
+
+  /* Primary Variant */
+  ${(props) =>
+    props.variant === "primary" &&
+    `
+    background-color: #23374d;
+    color: #ffffff;
+    border: none;
+  `}
+
+  /* Outline Variant */
+  ${(props) =>
+    props.variant === "outline" &&
+    `
+    background-color: transparent;
+    color: #23374d;
+    border: 2px solid #23374d;
+  `}
+
+    /* Outline Variant */
+    ${(props) =>
+    props.variant === "primarySmall" &&
+    `
+    background-color: transparent;
+    color: #23374d;
+    border: 2px solid #23374d;
+    padding:12px;
+    font-size: 13px;
+  `}
+
+  &:hover {
+    background-color: ${(props) =>
+      props.variant === "outline" ? "#23374d" : "#ffffff"};
+    color: ${(props) => (props.variant === "outline" ? "#ffffff" : "#23374d")};
   }
 `;
 
