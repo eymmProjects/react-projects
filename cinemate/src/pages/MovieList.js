@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BannerArea, { Col, Button } from "./MovieList.style";
 import GalleryWrapper from "./MovieListGallery.style";
 import Container from "../common/components/UI/Container";
@@ -6,10 +6,13 @@ import BannerBg from "../assets/Featured Image Header.png";
 import { Header } from "./Header";
 import { GalleryHeader } from "./GalleryHeader";
 import { Card } from "../components/Card";
+import { useFetch } from "../hooks/useFetch";
 
 // import { GALLERY_DATA } from "../common/data/FoodDelivery";
-export const MovieList = () => {
+export const MovieList = ({ apiPath }) => {
   // const { title, text, images } = GALLERY_DATA;
+  // const [movies, setMovies] = useState([]);
+  const { data: movies } = useFetch(apiPath);
 
   return (
     <>
@@ -58,10 +61,9 @@ export const MovieList = () => {
       <GalleryWrapper className=" max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0  ">
         <Container className="flex justify-start flex-wrap ">
           <div className="galleryBox">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {movies.map((movie) => (
+              <Card key={movie.id} movie={movie} />
+            ))}
           </div>
         </Container>
       </GalleryWrapper>

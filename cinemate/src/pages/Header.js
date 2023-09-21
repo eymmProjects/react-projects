@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FiSun, FiMoon } from "react-icons/fi";
 import Logo from "../assets/logo.png";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(true);
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -15,6 +16,11 @@ export const Header = () => {
     localStorage.getItem("darkMode") || true
   );
 
+  const activeCLass =
+    "block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700";
+
+  const inActiveClass =
+    "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700";
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
     if (darkMode) {
@@ -24,11 +30,14 @@ export const Header = () => {
     }
   }, [darkMode]);
 
-  const activeCLass =
-    "block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700";
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const queryTerm = event.target.search.value;
+    event.target.reset();
 
-  const inActiveClass =
-    "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700";
+    return navigate(`/search?q=${queryTerm}`);
+  };
+
   return (
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
@@ -69,28 +78,31 @@ export const Header = () => {
 
             {/* Search Icon */}
             <div className="relative">
-              <input
-                type="text"
-                placeholder="Search"
-                // className=" lg:w-auto bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white border rounded-lg text-sm px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-300"
+              <form action="" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  name="search"
+                  // className=" lg:w-auto bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white border rounded-lg text-sm px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-300"
 
-                className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white border rounded-lg text-sm px-3 py-2 md:px-4 md:py-2 md:h-10 focus:outline-none focus:ring-2 focus:ring-primary-300"
-              />
+                  className="bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white border rounded-lg text-sm px-3 py-2 md:px-4 md:py-2 md:h-10 focus:outline-none focus:ring-2 focus:ring-primary-300"
+                />
 
-              <button className="absolute top-0 right-0 mt-2 mr-3">
-                <svg
-                  className="w-5 h-5 text-gray-400 dark:text-gray-300"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M21 21l-4.35-4.35"></path>
-                  <path d="M15 10a5 5 0 11-10 0 5 5 0 0110 0z"></path>
-                </svg>
-              </button>
+                <button className="absolute top-0 right-0 mt-2 mr-3">
+                  <svg
+                    className="w-5 h-5 text-gray-400 dark:text-gray-300"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M21 21l-4.35-4.35"></path>
+                    <path d="M15 10a5 5 0 11-10 0 5 5 0 0110 0z"></path>
+                  </svg>
+                </button>
+              </form>
             </div>
 
             {/* Mobile Menu Button */}
