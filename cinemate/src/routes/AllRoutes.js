@@ -8,7 +8,7 @@ function AllRoutes() {
     <div className="dark:bg-slate-800">
       <Routes>
         <Route path="/" element={<MovieList apiPath="movie/now_playing" />} />
-        <Route path="movie/:id" element={<MovieDetail />} />
+        <Route path="movie/:id" element={<MovieDetail />} /> 
         <Route
           path="movies/popular"
           element={<MovieList apiPath="movie/popular" />} 
